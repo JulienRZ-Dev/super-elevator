@@ -8,6 +8,12 @@ Clone the project from this git repository.
 If you don't already have Node.js installed in your machine, install it. 
 You can find it here : https://nodejs.org/en/download/ 
 
+You also need to add the react dependency to run the Demo. You can easily do it by running this from a terminal at the demo's root folder. 
+
+```bash
+npm install react
+```
+
 When installed, you can play the Demo by running the following command from a terminal at the demo's root folder.
 
 ```bash

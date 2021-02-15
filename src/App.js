@@ -17,7 +17,7 @@ import MessagePanel from './components/MessagePanel'
 const floors = ["P", "RDC", "1", "2", "3", "4"];
 
 // delay between two floors (ms)
-const floorDelay = 2000; 
+const floorDelay = 2000;
 
 
 
@@ -110,25 +110,27 @@ function App() {
     <div id="App">
       <h1 id="title">Super Elevator Demo</h1>
 
-      {/* Contains control buttons */}
-      <div id="control-pane-container">
-      
-        {/* Request to go up */}
-        <Button label="UP" onClick={() => requestControl("up")} />
-        {/* Simulate a electronical breakdown */}
-        <Button label="SIMULATE BREAKDOWN" onClick={() => simulateBreakdown()} />
-        {/* Request to go down */}
-        <Button label="DOWN" onClick={() => requestControl("down")} />
-        {/* Immediatly reset the elevator state (usefull to simulate a maintenance or after changing the building structure) */}
-        <Button label="RESET" onClick={() => resetElevator()} />
+      <div id="main">
+        {/* Contains control buttons */}
+        <div id="control-pane-container">
 
+          {/* Request to go up */}
+          <Button label="UP" onClick={() => requestControl("up")} />
+          {/* Simulate a electronical breakdown */}
+          <Button label="SIMULATE BREAKDOWN" onClick={() => simulateBreakdown()} />
+          {/* Request to go down */}
+          <Button label="DOWN" onClick={() => requestControl("down")} />
+          {/* Immediatly reset the elevator state (usefull to simulate a maintenance or after changing the building structure) */}
+          <Button label="RESET" onClick={() => resetElevator()} />
+
+        </div>
+
+        {/* Contains usefull infos about the elevator state, display errors */}
+        <MessagePanel messageType={message.type} messageContent={message.content} />
+
+        {/* Elevator floor Indicators */}
+        <FloorPane floors={floors} current={floors ? floors[currentFloorIndex] : null} />
       </div>
-
-      {/* Contains usefull infos about the elevator state, display errors */}
-      <MessagePanel messageType={message.type} messageContent={message.content} />
-
-      {/* Elevator floor Indicators */}
-      <FloorPane floors={floors} current={floors ? floors[currentFloorIndex] : null} />
     </div>
   );
 }
